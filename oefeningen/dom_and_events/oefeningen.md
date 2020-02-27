@@ -36,22 +36,9 @@ Ga naar [deze site](https://ucsd.edu/) en open je devtools.
 ```
 
 ### Vraag 3
-Maak een webpagina met een h1 element aan met de tekst 'Mijn boekenlijst'.
-Voeg een script tag toe op de plaats net voor het sluisten van de body.
-```javascript
-const books = [
-      {
-        title: 'The theory of everything',
-        author: 'Stephen Hawking',
-        alreadyRead: true
-      }, {
-        title: '12 rules for life',
-        author: 'Jordan Peterson',
-        alreadyRead: false
-      }
-    ];
-```
-Itereer nu over deze boekenlijst en voeg voor elk boek de nodige HTML-elementen toe om iets als onderstaand resultaat te bekomen.
+Start vanuit de 'dom3.html' HTML-pagina.
+
+Itereer over de boekenlijst en voeg voor elk boek de nodige HTML-elementen toe om iets als onderstaand resultaat te bekomen.
 De waardes tussen {} moeten natuurlijk uit je object komen.
 Je hebt net zoveel listItems als dat er boeken in je array zitten.
 ```html
@@ -67,19 +54,8 @@ Je hebt net zoveel listItems als dat er boeken in je array zitten.
 ```
 
 ### Vraag 4
-Start met volgend stukje HTML
-```html
-<h1>Some info about me</h1>
+Start vanuit de 'dom4.html' HTML-pagina.
 
-<ul>
-    <li>Nickname: <span id="nickname"></span>
-    <li>Favorites:  <span id="favorites"></span>
-    <li>Hometown: <span id="hometown"></span>
-</ul>
-<script>
-
-</script>
-```
 1. Verander op de body de font-family naar 'Arial, sans-serif'
 2. Vul via javascript de 3 span-elementen in met jouw info
 3. In de head mag je een style tage toevoegen waar je elementen met de class 'list-item' een rode tekstkleur geeft
