@@ -120,6 +120,14 @@ toevoegt aan het ul-element.
 
 ```
 
-```
+### Vraag 3
+
+Start vanuit de 'events3.html' HTML-pagina.
+
+De rekenmachine mist nog de nodige javascript om functioneel te zijn.
+Voeg de nodige event listeners en logica toe om de rekenmachine te doen werken.
+
+``oplossing``
+```javascript
 
 ```
