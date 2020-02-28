@@ -58,7 +58,7 @@ Start vanuit de 'dom4.html' HTML-pagina.
 
 1. Verander op de body de font-family naar 'Arial, sans-serif'
 2. Vul via javascript de 3 span-elementen in met jouw info
-3. In de head mag je een style tage toevoegen waar je elementen met de class 'list-item' een rode tekstkleur geeft
+3. In de head mag je een style tag toevoegen waar je elementen met de class 'list-item' een rode tekstkleur geeft
 4. Itereer over elke li en geef ze de classname 'list-item'
 5. Creëer in js een nieuw img-element en zet zijn src attribuut naar een image van jezelf(of iets anders). Voeg dit element aan de pagina toe
 
