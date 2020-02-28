@@ -7,14 +7,12 @@ function multiply(a, b) {
     return a * b;
 }
 
-
 // Schrijf een functie 'difference()'
 // 1 parameter
 // output: Het verschil tussen het ingegeven getal en het getal 100.
 function difference(n) {
     return n > 100 ? n - 100 : 100 - n;
 }
-
 
 // Schrijf een functie 'isFifty()'
 // 2 parameters
@@ -23,18 +21,15 @@ function isFifty(x, y) {
     return ((x === 50 || y === 50) || (x + y === 50));
 }
 
-
 // Schrijf een functie 'startsWithHello()'
 // 1 parameter
 // output: Als de inputstring begint met 'Hello ', return gewoon de string. Begint ze niet met 'Hello ', plak dit er dan voor.
 function startsWithHello(sentence) {
-    if (!(!sentence || sentence.substring(0, 6) === 'Hello ')) {
-        sentence = 'Hello ' + sentence;
+    if (!sentence || sentence.substring(0, 6) === 'Hello ') {
+        return sentence;
     }
-
-    return sentence;
+    return 'Hello ' + sentence;
 }
-
 
 // Schrijf een functie 'removeCharacter()'
 // 2 parameters (string, number)
@@ -76,7 +71,6 @@ function countVowels(name) {
     return count;
 }
 
-
 // Schrijf een functie 'maxValue()'
 // 3 parameters
 // output: De functie geeft het grootste getal van de 3 als resultaat
@@ -103,7 +97,7 @@ console.log('Output oef 7:', `De inputstring bevat ${countVowels('oefening')} kl
 console.log('Output oef 8:', `Het grootste nummer is ${maxValue(12, 5, 25)}`);
 
 // Vraag 1a
-function printDriehoek(numberOfCharacters) {
+function printDriehoek(numberOfCharacters){
     let output = '';
     for (let i = 0; i <= numberOfCharacters; i++) {
         for (let j = 0; j < i; j++) {
@@ -113,39 +107,36 @@ function printDriehoek(numberOfCharacters) {
         output = '';
     }
 }
-
 printDriehoek(7);
 
 // Vraag 1b
 function printDriehoekOmgekeerd(numberOfCharacters) {
     for (let i = 0; i < numberOfCharacters; i++) {
         let output = '';
-        for (let j = 1; j < numberOfCharacters - i; j++) {
+        for (let j = 1; j < numberOfCharacters-i; j++) {
             output = output + ' ';
         }
-        for (let k = 1; k <= (i + 1); k++) {
+        for (let k = 1; k <= (i+1); k++) {
             output = output + '#';
         }
         console.log(output);
     }
 }
-
 printDriehoekOmgekeerd(7);
 
 // Vraag 1c
 function printDriehoekPyramide(numberOfCharacters) {
     for (let i = 0; i < numberOfCharacters; i++) {
         let output = '';
-        for (let j = 1; j < numberOfCharacters - i; j++) {
+        for (let j = 1; j < numberOfCharacters-i; j++) {
             output = output + ' ';
         }
-        for (let k = 1; k <= (2 * i + 1); k++) {
+        for (let k = 1; k <= (2*i+1); k++) {
             output = output + '#';
         }
         console.log(output);
     }
 }
-
 printDriehoekPyramide(7);
 
 // Vraag 1d
@@ -153,13 +144,13 @@ function printDriehoekPyramideInterval(numberOfCharacters, interval) {
     let count = 0;
     for (let i = 0; i < numberOfCharacters; i++) {
         let output = '';
-        for (let j = 1; j < numberOfCharacters - i; j++) {
+        for (let j = 1; j < numberOfCharacters-i; j++) {
             output = output + ' ';
         }
-        for (let k = 1; k <= (2 * i + 1); k++) {
-            if (count % interval === 0) {
+        for (let k = 1; k <= (2*i+1); k++) {
+            if (count % interval === 0){
                 output += '@';
-            } else {
+            }else{
                 output = output + '#';
             }
             count++;
@@ -167,26 +158,24 @@ function printDriehoekPyramideInterval(numberOfCharacters, interval) {
         console.log(output);
     }
 }
-
 printDriehoekPyramideInterval(7, 5);
 
 // Vraag 2
 function printGetallen() {
     let output = '';
     for (let i = 1; i < 100; i++) {
-        if (i % 3 === 0 && i % 5 !== 0) {
+        if (i % 3 === 0 && i % 5 !== 0){
             output += 'Fizz';
-        } else if (i % 3 !== 0 && i % 5 === 0) {
+        }else if (i % 3 !== 0 && i % 5 === 0){
             output += 'Buzz';
-        } else if (i % 3 === 0 && i % 5 === 0) {
+        }else if (i % 3 === 0 && i % 5 === 0){
             output += 'FizzBuzz';
-        } else {
+        }else{
             output += i + '';
         }
     }
     console.log(output);
 }
-
 printGetallen();
 
 // Vraag 3
@@ -194,46 +183,14 @@ function schaakBord(grootte) {
     let output;
     for (let i = 0; i < 10; i++) {
         output = '';
-
         for (let j = 0; j < grootte; j++) {
-
-            if (i % 2 === 0) {
-                if (j % 2 === 0) {
-                    output += '#';
-                } else {
-                    output += '_';
-                }
-            } else {
-                output += j % 2 === 0 ? '_' : '#'; // Verkortte schrijfnotatie, had hierboven ook gekund.
+            if (j % 2 === 0){
+                output += '#';
+            }else{
+                output += ' ';
             }
         }
         console.log(output);
     }
 }
-
 schaakBord(8);
-
-// vraag 4
-
-function somDrie(ondergrens, bovengrens) {
-    let resultaten = [];
-    for (let i = ondergrens + 1; i < bovengrens; i++) {
-        if (i % 3 === 0) {
-            resultaten.push(i);
-        }
-    }
-
-    /*const calculateSum = function (arr) {
-        arr = [1, 2, 3, 4];
-        return arr.reduce(function (accumulator, currentArrayValue) {
-            return accumulator + currentArrayValue
-        }, 100);
-    };*/
-
-    // Verkortte notatie
-    const calculateSum = arr => arr.reduce((a,b) => a + b, 0);
-    console.log(calculateSum(resultaten));
-
-}
-
-somDrie(1, 100);
