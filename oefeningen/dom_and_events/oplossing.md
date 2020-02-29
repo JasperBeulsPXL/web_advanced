@@ -148,7 +148,7 @@ Start vanuit de 'dom4.html' HTML-pagina.
 
 1. Verander op de body de font-family naar 'Arial, sans-serif'
 2. Vul via javascript de 3 span-elementen in met jouw info
-3. In de head mag je een style tag toevoegen waar je elementen met de class 'list-item' een rode tekstkleur geeft
+3. Voeg via javascript een style tag toe in de head waar je elementen met de class 'list-item' een rode tekstkleur geeft
 4. Itereer over elke li en geef ze de classname 'list-item'
 5. Creëer in js een nieuw img-element en zet zijn src attribuut naar een image van jezelf(of iets anders). Voeg dit element aan de pagina toe
 
@@ -159,11 +159,6 @@ Start vanuit de 'dom4.html' HTML-pagina.
    <head>
     <meta charset="utf-8"/>
     <title>About Me</title>
-    <style>
-      .list-item {
-        color: red;
-      }
-    </style>
   </head>
   <body>
     <h1>About Me</h1>
@@ -179,6 +174,15 @@ Start vanuit de 'dom4.html' HTML-pagina.
      document.getElementById('nickname').textContent = 'Princess Bubblegum';
      document.getElementById('favorites').textContent = 'science, music, my candy subjects';
      document.getElementById('hometown').textContent = 'Candy Kingdom';
+     
+     let css = 'h1 { background: red; }',
+         head = document.head || document.getElementsByTagName('head')[0],
+         style = document.createElement('style');
+         
+         head.appendChild(style);
+         
+         style.type = 'text/css';
+
      let items = document.getElementsByTagName('li');
      for (let i = 0; i < items.length; i++) {
         items[i].className = 'list-item';
