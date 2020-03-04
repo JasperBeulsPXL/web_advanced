@@ -64,9 +64,9 @@ svg {
     text-decoration: line-through;
 }
 
-input[type="checkbox"] {
+/*input[type="checkbox"] {
     display: none;
-}
+}*/
 
 .tick {
     width: 30px;
