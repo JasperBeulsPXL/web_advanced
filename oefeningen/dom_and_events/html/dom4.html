@@ -6,14 +6,37 @@
 </head>
 <body>
 <h1>Some info about me</h1>
-
+<header></header>
 <ul>
     <li>Nickname: <span id="nickname"></span></li>
-    <li>Favorites:  <span id="favorites"></span></li>
-    <li>Hometown: <span id="hometown"></span></li>
+    <li>Favorites: <span id="favorites"></span></li>
+    <li on>Hometown: <span id="hometown"></span></li>
 </ul>
 <script>
+    document.body.style.fontFamily = 'Arial, sans-serif';
+    document.getElementById('nickname').textContent = 'Princess Bubblegum';
+    document.getElementById('favorites').textContent = 'science, music, my candy subjects';
+    document.getElementById('hometown').textContent = 'Candy Kingdom';
 
+
+    head = document.head || document.getElementsByTagName('head')[0];
+    style = document.createElement('style');
+    style.innerText = '.list-item{color: red}';
+
+    head.appendChild(style);
+
+    style["type"] = 'text/css';
+
+    let list = document.querySelectorAll('li');
+    list.forEach(listItem => {
+        listItem.setAttribute('class', 'list-item');
+    });
+
+    let img = document.createElement('img');
+    img.height = 70;
+    img.src = '../../assets/cute_kitty.jpg';
+    let src = document.getElementsByTagName('header')[0];
+    src.appendChild(img);
 </script>
 </body>
 </html>

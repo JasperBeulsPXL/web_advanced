@@ -18,6 +18,18 @@
 
 <script>
 
+    window.onload = function(){
+        let generateButton = document.getElementById('btn-generate');
+        generateButton.addEventListener('click', function () {
+            const adjective = document.getElementById('adjective').value;
+            const noun = document.getElementById('noun').value;
+            const person = document.getElementById('person').value;
+
+            const story = `${person} is dol op ${adjective} ${noun}`;
+            document.getElementById('story').innerText = story;
+        })
+    }
+
 </script>
 </body>
 </html>
