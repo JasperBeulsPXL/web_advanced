@@ -140,8 +140,24 @@ function headRequest() {
   .catch(logError);
 }
 ```
+En voeg ook de ``readResponseAsText()`` functie toe:
+```
+function readResponseAsText(response) {
+  return response.text();
+}
+```
+Refresh de pagina en klik op Head request. Bekijk de response.  
 
-Vervolledig de ``headRequest()`` functie met de volgende code:
+Zoals je kan zien krijgen we in tegenstelling tot de [GET method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) deze keer 
+geen gevulde body terug in de response.  
+
+Dit komt omdat de [HEAD method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD) enkel
+de headers teruggeeft als resultaat, en een lege body.  
+Dit is bijvoorbeeld handig wanneer je eerst wilt kijken naar de headers
+vooraleer je beslist de ``GET`` te doen. Je zou bijvoorbeeld eerst willen kijken hoe groot het resultaat van een ``GET``
+request zou zijn zodat je kan vermijden te grote data binnen te halen om zo bandwidth te besparen.
+
+Vervang nu eens de ``headRequest()`` functie met de volgende code:
 
 ```
 function headRequest() {
@@ -154,10 +170,41 @@ function headRequest() {
     .catch(logError);
 }
 ```
-Als je nu je pagina refresht en klikt op head request zou je verwachten dat in het gelogde resultaat er in tegenstelling
-tot de [GET method](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods) deze keer geen body aanwezig is in de response.  
-We krijgen echter een foutmelding te zien... Dit komt omdat we de [Body.json()](https://developer.mozilla.org/en-US/docs/Web/API/Body/json)
+Als je nu je pagina refresht en klikt op head request krijgen we een foutmelding te zien.  
+Dit komt omdat we de [Body.json()](https://developer.mozilla.org/en-US/docs/Web/API/Body/json)
 aanroepen. Aangezien de body van een HEAD request leeg is proberen we dus van een lege string ``""`` een JSON object te maken.  
 Een lege string is geen geldige JSON, vandaar de error.
 
 Meer informatie over [headers](https://developer.mozilla.org/en-US/docs/Web/API/Headers)
+
+# Using POST requests
+Fetch kan ook [POST requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/POST) versturen.
+
+Om een ``POST`` request te kunnen versturen moeten we eerst een echo server opstarten.  
+
+Open een terminal/cmd in de ``fetch-api-lab/app/`` folder en typ het volgende:  
+``node echo-servers/cors-server.js``
+
+Deze simpele echo server gaat simpelweg elke request die ernaar verstuurd wordt terug echo'en.
+
+Vervang de ``postRequest()`` functie met de volgende code:
+```javascript
+function postRequest() {
+  fetch('http://localhost:5000/', {
+    method: 'POST',
+    body: 'name=pxl&message=hello'
+  })
+    .then(validateResponse)
+    .then(readResponseAsText)
+    .then(showText)
+    .catch(logError);
+}
+```
+
+Refresh de pagina en klik op **POST request**. Je zou nu de verstuurde request moeten kunnen zien op de pagina omdat deze
+terug ge-echo'd wordt door de server.
+
+####uitleg
+Om een ``POST`` request te versturen via fetch moeten we net zoals bij een ``HEAD`` request de HTTP method meegeven en 
+deze keer ook de body die we willen versturen. In dit geval een simpele string.  
+De body bevat de data die we willen versturen.

@@ -8,6 +8,10 @@ function logError(error) {
   console.log('Looks like there was a problem:', error);
 }
 
+function showText(responseAsText) {
+  const message = document.getElementById('message');
+  message.textContent = responseAsText;
+}
 
 // Fetch JSON ----------
 
