@@ -1,9 +1,9 @@
 Open je computer's command line. 
 
-Navigeer naar fetch-api-lab/app/ en start de lokale development server:
+Navigeer naar fetch-api-lab\app\ en start de lokale development server:
 
 ```
-cd oefeningen/fetch-api-lab/app
+cd oefeningen\fetch-api-lab\app\
 npm install
 node server.js
 ```
@@ -28,7 +28,8 @@ function fetchJSON() {
 }
 ```
 De fetch method verwacht als parameter de url waarnaar we de request willen sturen.
-Fetch retourneert een promise die resolved in een [response object](https://developer.mozilla.org/en-US/docs/Web/API/Response).  
+Fetch retourneert een [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+ die resolved in een [response object](https://developer.mozilla.org/en-US/docs/Web/API/Response).  
 Als de promise resolved wordt de response doorgegeven naar de logResult functie.  
 Als de promise werd gereject neemt de catch over en wordt de error naar de logError function doorgegeven.
 
@@ -74,7 +75,7 @@ zijn gaan halen.
 Om zo een stream te lezen kunnen we gebruik maken van enkele verschillende [methodes](https://developer.mozilla.org/en-US/docs/Web/API/Response) 
 van het Response object.
 
-In ``index.js`` voeg een ``readResponseAsJSON`` functie toe met de volgende code:
+In ``main.js`` voeg een ``readResponseAsJSON`` functie toe met de volgende code:
 ```
 function readResponseAsJSON(response) {
   return response.json();
@@ -134,16 +135,17 @@ function headRequest() {
   fetch('examples/words.txt', {
     method: 'HEAD'
   })
-  .then(validateResponse)
-  .then(readResponseAsText)
-  .then(logResult)
-  .catch(logError);
+      .then(validateResponse)
+      .then(logSize)
+      .catch(logError);
 }
 ```
-En voeg ook de ``readResponseAsText()`` functie toe:
+Voeg ook deze code nog toe in je `main.js`
 ```
-function readResponseAsText(response) {
-  return response.text();
+function logSize(response) {
+  const url = response.url;
+  const size = response.headers.get('content-length');
+  console.log(`${url} is ${size} bytes`);
 }
 ```
 Refresh de pagina en klik op Head request. Bekijk de response.  
@@ -171,7 +173,7 @@ function headRequest() {
 }
 ```
 Als je nu je pagina refresht en klikt op head request krijgen we een foutmelding te zien.  
-Dit komt omdat we de [Body.json()](https://developer.mozilla.org/en-US/docs/Web/API/Body/json)
+Dit komt omdat we [Body.json()](https://developer.mozilla.org/en-US/docs/Web/API/Body/json)
 aanroepen. Aangezien de body van een HEAD request leeg is proberen we dus van een lege string ``""`` een JSON object te maken.  
 Een lege string is geen geldige JSON, vandaar de error.
 
