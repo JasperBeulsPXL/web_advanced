@@ -3,13 +3,13 @@ Open je computer's command line.
 Navigeer naar fetch-api-lab/app/ en start de lokale development server:
 
 ```
-cd fetch-api-lab/app
+cd oefeningen/fetch-api-lab/app
 npm install
 node server.js
 ```
 Je kan het process stoppen met Ctrl-c.
 
-``js/index.js`` is de main javascript file van onze app, hier gaan we onze code schrijven  
+``js/main.js`` is de main javascript file van onze app, hier gaan we onze code schrijven  
 ``index.html`` is de main HTML-pagina van onze site/app  
 ``package-lock.json and package.json`` zijn de configuratie-bestanden van onze development server   
 ``server.js`` is een node development server  
