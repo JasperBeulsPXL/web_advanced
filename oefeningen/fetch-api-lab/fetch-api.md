@@ -9,7 +9,7 @@ node server.js
 ```
 Je kan het process stoppen met Ctrl-c.
 
-``js/main.js`` is de main javascript file van onze app, hier gaan we onze code schrijven  
+``js/index.js`` is de main javascript file van onze app, hier gaan we onze code schrijven  
 ``index.html`` is de main HTML-pagina van onze site/app  
 ``package-lock.json and package.json`` zijn de configuratie-bestanden van onze development server   
 ``server.js`` is een node development server  
@@ -40,7 +40,7 @@ De uitleg hiervoor is dat fetch promises enkel rejecten als de request niet kon 
 We moeten dus steeds de validiteit van onze respons checken!
 
 ### Checking response validity
-In main.js, voeg een functie toe om responses te valideren:
+In index.js, voeg een functie toe om responses te valideren:
 
 ```javascript
 function validateResponse(response) {
@@ -74,7 +74,7 @@ zijn gaan halen.
 Om zo een stream te lezen kunnen we gebruik maken van enkele verschillende [methodes](https://developer.mozilla.org/en-US/docs/Web/API/Response) 
 van het Response object.
 
-In ``main.js`` voeg een ``readResponseAsJSON`` functie toe met de volgende code:
+In ``index.js`` voeg een ``readResponseAsJSON`` functie toe met de volgende code:
 ```
 function readResponseAsJSON(response) {
   return response.json();
