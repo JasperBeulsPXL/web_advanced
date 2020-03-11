@@ -17,7 +17,8 @@ Allereerst gaan we een package.json aanmaken om onze dependencies te beheren.
 
 Typ in je terminal:  
 ``npm init -y``  
-``npm install --save-dev babel-cli``
+``npm install --save-dev @babel/cli``  
+``npm install --save-dev @babel/core``
 
 ``npm init`` gaat een package.json file genereren. De ``-y`` option zorgt ervoor dat de file gegenereerd wordt zonder vragen
 te stellen.  
