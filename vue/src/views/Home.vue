@@ -46,9 +46,7 @@
                 this.lastId = this.todos[this.todos.length-1].id + 1;
 
                 newTodo.id = this.lastId;
-                let newTodos = this.todos;
-                newTodos.push(newTodo);
-                this.todos = newTodos;
+                this.todos.push(newTodo);
             }
         },
         created() {
