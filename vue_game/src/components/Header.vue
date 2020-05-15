@@ -11,6 +11,8 @@
             <router-link to="/">Home</router-link>
             |
             <router-link to="/buildings">Buildings</router-link>
+            |
+            <router-link to="/units">Units</router-link>
         </div>
     </div>
 </template>
@@ -41,6 +43,5 @@
     .resource-list {
         display: flex;
         align-items: center;
-        list-style-type: none;
     }
 </style>

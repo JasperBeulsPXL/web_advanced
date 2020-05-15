@@ -5,16 +5,20 @@
             <h2>{{building.name}}</h2>
             <label>Gold: {{building.gold}}</label>
             <label>resources needed: {{building.steel}} steel, {{building.ammunition}} ammunition</label>
-            <input class="building__info__button" type="button" value="buy this unit"/>
+            <input class="building__info__button" type="button" value="buy this building" @click="purchaseBuilding"/>
         </div>
-
     </div>
 </template>
 
 <script>
     export default {
         name: "Building",
-        props: {building: Object}
+        props: {building: Object},
+        methods: {
+            purchaseBuilding(){
+                return this.$store.commit('purchaseBuilding', {id:this.building.id});
+            }
+        }
     }
 </script>
 
@@ -27,7 +31,7 @@
         &__img {
             width: 25%;
             min-width: 260px;
-            margin-right: 10px;
+            margin-right: 20px;
         }
 
         &__info {
@@ -39,6 +43,7 @@
             &__button {
                 max-width: 40%;
                 align-self: center;
+                cursor:pointer;
             }
         }
     }

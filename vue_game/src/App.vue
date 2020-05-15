@@ -26,6 +26,10 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: white;
+
+        ul{
+            list-style-type: none;
+        }
     }
 
     #nav {

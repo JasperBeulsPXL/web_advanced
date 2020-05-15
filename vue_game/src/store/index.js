@@ -13,6 +13,7 @@ export default new Vuex.Store({
         ],
         buildings: [
             {
+                id: 1,
                 name: 'imperial barracks',
                 gold: 5000,
                 steel: 100,
@@ -23,21 +24,25 @@ export default new Vuex.Store({
                         name: 'imperial stormtrooper',
                         health: 100,
                         gold: 50,
-                        ammunition: 100
+                        ammunition: 100,
+                        src: 'armyuniticons_90x90_javeliner.jpg'
                     }, {
                         name: 'imperial shocktrooper',
                         health: 200,
                         gold: 100,
-                        ammunition: 50
+                        ammunition: 50,
+                        src: 'armyuniticons_90x90_LateMiddleAge_champion.jpg'
                     }, {
                         name: 'imperial cannon fodder',
                         health: 30,
                         gold: 10,
-                        ammunition: 5
+                        ammunition: 5,
+                        src: 'armyuniticons_90x90_legionnaire.jpg'
                     },
                 ]
             },
             {
+                id: 2,
                 name: 'Astartes barracks',
                 gold: 5000,
                 steel: 100,
@@ -48,20 +53,42 @@ export default new Vuex.Store({
                         name: 'Space marine',
                         health: 5000,
                         gold: 1000,
-                        ammunition: 1500
+                        ammunition: 1500,
+                        src: 'Mercenario.jpg'
                     }, {
                         name: 'Primarch',
                         health: 15000,
                         gold: 2500,
-                        ammunition: 150
+                        ammunition: 150,
+                        src: 'Rifleman.jpg'
                     }
                 ]
             },
-        ]
+        ],
+        purchasedBuildings: [
+            {
+                id: 1,
+                amount: 1
+            }
+        ],
     },
     mutations: {
         nextTurn(state) {
             state.turnNumber += 1;
+        },
+        purchaseBuilding(state, payload){
+            let building = state.purchasedBuildings.find(building =>{
+                return building.id === payload.id;
+            });
+
+            if(building){
+                building.amount += 1;
+            }else{
+                state.purchasedBuildings.push({
+                    id: payload.id,
+                    amount: 1
+                });
+            }
         }
     },
     actions: {},
