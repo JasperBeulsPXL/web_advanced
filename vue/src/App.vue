@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <Home/>
+    <ToDoList/>
   </div>
 </template>
 
 <script>
-import Home from './views/Home.vue'
+import ToDoList from './views/ToDoList.vue'
 export default {
   name: 'App',
   components: {
-    Home
+    ToDoList
   }
 }
 </script>

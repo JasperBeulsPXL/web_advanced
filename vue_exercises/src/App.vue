@@ -7,31 +7,7 @@
 <script>
 export default {
   name: 'App',
-  data() {
-    return {
-      todos: [
-        {
-          id: 1,
-          title: 'Kamer opruimen',
-          completed: false
-        }, {
-          id: 2,
-          title: 'Eten maken',
-          completed: false
-        }, {
-          id: 3,
-          title: 'Naar de winkel gaan',
-          completed: false
-        }, {
-          id: 4,
-          title: 'Corona overleven',
-          completed: false
-        }
-      ],
-      lastId: 0
-    }
-  },
-  methods(){
+  components:{
 
   }
 }

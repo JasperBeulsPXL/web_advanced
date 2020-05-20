@@ -71,19 +71,55 @@ export default new Vuex.Store({
                 amount: 1
             }
         ],
+        economy: [
+            {
+                name: 'goldmine',
+                src: 'goldmine.jpg',
+                level: 1,
+                income: 500,
+                upgradeList: [
+                    {
+                        name: 'level 1',
+                        incomePerTurn: 500,
+                        costToUpgrade: 1500
+                    },{
+                        name: 'level 2',
+                        incomePerTurn: 750,
+                        costToUpgrade: 2500
+                    },
+                ]
+            },
+            {
+                name: 'steelworks',
+                src: 'steelworks.jpg',
+                level: 1,
+                income: 500,
+                upgradeList: [
+                    {
+                        name: 'level 1',
+                        incomePerTurn: 500,
+                        costToUpgrade: 1500
+                    },{
+                        name: 'level 2',
+                        incomePerTurn: 750,
+                        costToUpgrade: 2500
+                    },
+                ]
+            }
+        ]
     },
     mutations: {
         nextTurn(state) {
             state.turnNumber += 1;
         },
-        purchaseBuilding(state, payload){
-            let building = state.purchasedBuildings.find(building =>{
+        purchaseBuilding(state, payload) {
+            let building = state.purchasedBuildings.find(building => {
                 return building.id === payload.id;
             });
 
-            if(building){
+            if (building) {
                 building.amount += 1;
-            }else{
+            } else {
                 state.purchasedBuildings.push({
                     id: payload.id,
                     amount: 1
