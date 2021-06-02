@@ -1,6 +1,6 @@
 <template>
     <div class="unitbuilding">
-        <img class="unitbuilding__img"
+        <img class="building__img"
              :src="require(`@/assets/buildings/${building.src}`)"/>
         <div class="unitbuilding__info">
             <h2>{{selectedUnit.name}}</h2>
@@ -19,15 +19,21 @@
 
 <script>
     import UnitButton from "./UnitButton";
+
     export default {
         name: "UnitBuilding",
         components: {UnitButton},
         props: {building: Object},
-        data(){
-            return {selectedUnit: {name: 'Hover over a unit',gold: 0}}
+        data() {
+            return {
+                selectedUnit: {
+                    name: 'Hover over a unit',
+                    gold: 0
+                }
+            }
         },
-        methods:{
-            changeSelectedUnit(unit){
+        methods: {
+            changeSelectedUnit(unit) {
                 this.selectedUnit = unit;
             }
         }
@@ -40,6 +46,7 @@
         justify-content: flex-start;
         flex-wrap: wrap;
         margin-bottom: 20px;
+
         &__img {
             width: 25%;
             min-width: 260px;
@@ -52,12 +59,12 @@
             flex-direction: column;
             justify-content: space-evenly;
 
-            &__buttons{
+            &__buttons {
                 display: flex;
                 padding: 0;
             }
 
-            &__listitem{
+            &__listitem {
                 margin: 0 5px 0 5px;
             }
         }
